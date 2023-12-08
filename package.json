@@ -1,0 +1,23 @@
+{
+  "name": "evignette-dashboard-exporter",
+  "version": "0.1.0",
+  "description": "import/export data from evignette dashboard (https://via.admin.ch/shop/dashboard)",
+  "scripts": {
+    "build": "npm run build:export && npm run build:import",
+	"build:export": "node node_modules/bookmarklet/bin/cli.js src/dashboard/bookmarklet/export-eVignette.js dist/export.txt",
+	"build:import": "node node_modules/bookmarklet/bin/cli.js src/dashboard/bookmarklet/import-eVignette.js dist/import.txt"
+  },
+  "keywords": [
+    "evignette",
+    "dashboard",
+    "save",
+    "data",
+	"localStorag"
+  ],
+  "author": "",
+  "license": "EPL-2.0",
+  "dependencies": {},
+  "devDependencies": {
+    "bookmarklet": "~3.0.0"
+  }
+}
