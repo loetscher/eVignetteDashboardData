@@ -12,14 +12,14 @@ It looks like the purchase receipt stays in the browser memory. If the memory is
 
 ---
 
-There are two [bookmarklets](https://en.wikipedia.org/wiki/Bookmarklet) available under ```dist/``` folder for import/export eVignette Dashboard data.
+There are two [bookmarklets](https://en.wikipedia.org/wiki/Bookmarklet) available under ```dist/*.txt``` folder for import/export eVignette Dashboard data.
 
 
-1. Add the export bookmarklet (dist/export.txt) to the browser you want to export data from (this has to be the same browser you purchased the eVignette).
+1. Add the export bookmarklet (dist/export-bookmarklet.txt) to the browser you want to export data from (this has to be the same browser you purchased the eVignette).
 Browse to https://via.admin.ch/shop/dashboard and run the export bookmarklet. Save should start automatically and a file named ```eVignetteDashboard.json``` should be downloaded.
-2. Open the browser in which you want to import the data and add the import bookmarklet (dist/import.txt). Run it and paste the content from the saved ```eVignetteDashboard.json``` file to the text field. Note: the localStorage will be overwritten if there is already an entry which is also part of the ```eVignetteDashboard.json``` file.
+2. Open the browser in which you want to import the data and add the import bookmarklet (dist/import-bookmarklet.txt). Run it and paste the content from the saved ```eVignetteDashboard.json``` file to the text field. Note: the localStorage will be overwritten if there is already an entry which is also part of the ```eVignetteDashboard.json``` file.
 
 ---
-You can also use vanilla JavaScript (under ```src/dashboard/js-console```) to do the transfer manually by using your browser's developer console.
+You can also use vanilla JavaScript (under ```dist/dashboard/*-eVignette-bundle.js```) to do the transfer manually by using your browser's developer console.
 
 ---

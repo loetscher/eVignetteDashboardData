@@ -3,21 +3,28 @@
   "version": "0.1.0",
   "description": "import/export data from evignette dashboard (https://via.admin.ch/shop/dashboard)",
   "scripts": {
-    "build": "npm run build:export && npm run build:import",
-	"build:export": "node node_modules/bookmarklet/bin/cli.js src/dashboard/bookmarklet/export-eVignette.js dist/export.txt",
-	"build:import": "node node_modules/bookmarklet/bin/cli.js src/dashboard/bookmarklet/import-eVignette.js dist/import.txt"
+    "build": "tsc && npm run build:iife && npm run build:bookmarklet",
+    "build:iife": "npm run build:iife:export && npm run build:iife:import && npm run build:iife:bookmarklet:export && npm run build:iife:bookmarklet:import",
+    "build:iife:export": "rollup dist/dashboard/export-eVignette.js --file dist/dashboard/export-eVignette-bundle.js --format iife",
+    "build:iife:import": "rollup dist/dashboard/import-eVignette.js --file dist/dashboard/import-eVignette-bundle.js --format iife",
+    "build:iife:bookmarklet:export": "rollup dist/dashboard/bookmarklet/export-eVignette.js --file dist/dashboard/bookmarklet/export-eVignette-bundle.js --format iife",
+    "build:iife:bookmarklet:import": "rollup dist/dashboard/bookmarklet/import-eVignette.js --file dist/dashboard/bookmarklet/import-eVignette-bundle.js --format iife",
+    "build:bookmarklet": "npm run build:bookmarklet:export && npm run build:bookmarklet:import",
+    "build:bookmarklet:export": "node node_modules/bookmarklet/bin/cli.js dist/dashboard/bookmarklet/export-eVignette-bundle.js dist/export-bookmarklet.txt",
+    "build:bookmarklet:import": "node node_modules/bookmarklet/bin/cli.js dist/dashboard/bookmarklet/import-eVignette-bundle.js dist/import-bookmarklet.txt"
   },
   "keywords": [
     "evignette",
     "dashboard",
     "save",
     "data",
-	"localStorag"
+    "localStorage"
   ],
   "author": "",
   "license": "EPL-2.0",
-  "dependencies": {},
   "devDependencies": {
-    "bookmarklet": "~3.0.0"
+    "bookmarklet": "~3.0.0",
+    "rollup": "~4.7.0",
+    "typescript": "~5.3.3"
   }
 }
